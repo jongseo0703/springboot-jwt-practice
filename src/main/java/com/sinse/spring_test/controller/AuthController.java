@@ -31,11 +31,11 @@ public class AuthController {
     String testPassword = "1234";
     String testEncodingPassword = passwordEncoder.encode(testPassword);
 
-    if (!loginRequestDTO.getEmail().equals(testEmail)) {
+    if (!loginRequestDTO.email().equals(testEmail)) {
       return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("존재 하지 않는 사용자입니다.");
     }
 
-    if (!loginRequestDTO.getPassword().equals(testPassword)) {
+    if (!loginRequestDTO.password().equals(testPassword)) {
       return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("비밀번호가 일치하지 않습니다.");
     }
 
